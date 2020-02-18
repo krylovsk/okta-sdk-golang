@@ -21,7 +21,9 @@ package okta
 import ()
 
 type UserCredentials struct {
-	Emails           []string                    `json:"emails,omitempty"`
+	// https://github.com/okta/okta-sdk-golang/issues/81
+	// https://github.com/okta/okta-sdk-golang/pull/84
+	Emails           []*EmailAddress             `json:"emails,omitempty"`
 	Password         *PasswordCredential         `json:"password,omitempty"`
 	Provider         *AuthenticationProvider     `json:"provider,omitempty"`
 	RecoveryQuestion *RecoveryQuestionCredential `json:"recovery_question,omitempty"`
